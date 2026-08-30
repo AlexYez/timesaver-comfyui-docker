@@ -1,0 +1,4 @@
+https://github.com/AlexYez/comfyui-timesaver.git
+https://github.com/AlexYez/comfyui-artius-browser.git
+https://github.com/AlexYez/comfyui-ts-cosyvoice.git
+
