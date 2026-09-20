@@ -7,7 +7,7 @@ following node packs:
 - `AlexYez/comfyui-artius-browser`
 - `AlexYez/comfyui-ts-cosyvoice`
 
-The image is rebuilt every day from current upstream sources. The integrated
+The image is rebuilt weekly and on relevant source changes. The integrated
 Manager is installed from ComfyUI's `manager_requirements.txt` and enabled at
 runtime with `--enable-manager`; the legacy Manager custom node is not used.
 
@@ -29,7 +29,7 @@ handled by another bootstrap process.
 docker run --rm --gpus all \
   -p 8188:8188 \
   -v /workspace:/workspace \
-  ghcr.io/OWNER/REPOSITORY:cu128
+  ghcr.io/alexyez/timesaver-comfyui-docker:cu128
 ```
 
 Open port `8188` through the provider's HTTP proxy. Extra ComfyUI flags can be
@@ -40,8 +40,13 @@ docker run --rm --gpus all \
   -p 8188:8188 \
   -e COMFY_ARGS="--preview-method auto" \
   -v /workspace:/workspace \
-  ghcr.io/OWNER/REPOSITORY:cu128
+  ghcr.io/alexyez/timesaver-comfyui-docker:cu128
 ```
 
 Do not store provider credentials or Hugging Face tokens in the image. Supply
 them as environment variables or provider secrets at runtime.
+
+## Project documentation
+
+- [Current project state and decisions (Russian)](docs/PROJECT_MEMORY_RU.md)
+- [RunPod operations and recovery guide (Russian)](docs/RUNPOD_RUNBOOK_RU.md)

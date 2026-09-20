@@ -10,7 +10,7 @@ on:
       - .github/workflows/build-container.yml
   workflow_dispatch:
   schedule:
-    - cron: "17 3 * * *"
+    - cron: "17 3 * * 0"
 
 concurrency:
   group: comfyui-container
@@ -58,7 +58,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-to: type=gha,mode=min
           provenance: mode=max
           sbom: true
-
