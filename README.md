@@ -15,10 +15,17 @@ runtime with `--enable-manager`; the legacy Manager custom node is not used.
 
 Mount persistent or temporary storage at `/workspace`. The container stores
 models, input, output, user settings, and Manager-installed custom nodes there.
-The three declared node packs are refreshed from the versions baked into each
-image while any additional Manager-installed nodes are preserved. On startup,
-their `requirements.txt` files are installed into the fresh container using a
-persistent pip download cache at `/workspace/.cache/pip`.
+The three declared node packs are copied only when missing; existing packs and
+Manager updates are preserved. New images update ComfyUI and the initial node
+versions for empty storage. Update existing node packs through Manager.
+On startup, additional or changed `requirements.txt` files are installed into
+the fresh container using `/workspace/.cache/pip`. Requirements identical to
+the built-in packs are already installed in the image and are skipped.
+Hugging Face and Torch caches persist under `/workspace/.cache` too.
+
+Set `REQUIRE_PERSISTENT_MOUNT=1` in RunPod to refuse startup if `/workspace`
+has not been mounted. This checks for a mount, not whether it is a Network Volume;
+verify the selected storage in the RunPod console.
 
 Set `INSTALL_CUSTOM_NODE_REQUIREMENTS=0` only when dependency restoration is
 handled by another bootstrap process.
@@ -50,3 +57,4 @@ them as environment variables or provider secrets at runtime.
 
 - [Current project state and decisions (Russian)](docs/PROJECT_MEMORY_RU.md)
 - [RunPod operations and recovery guide (Russian)](docs/RUNPOD_RUNBOOK_RU.md)
+- [Reusable RunPod template settings (Russian)](docs/RUNPOD_TEMPLATE_RU.md)

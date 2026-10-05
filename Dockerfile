@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       python3-venv \
       rsync \
       tini \
+      util-linux \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python3 -m venv "${VIRTUAL_ENV}" \
