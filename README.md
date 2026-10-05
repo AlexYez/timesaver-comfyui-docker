@@ -10,6 +10,9 @@ following node packs:
 The image is rebuilt weekly and on relevant source changes. The integrated
 Manager is installed from ComfyUI's `manager_requirements.txt` and enabled at
 runtime with `--enable-manager`; the legacy Manager custom node is not used.
+Each CI run changes `UPSTREAM_REFRESH` to fetch upstream source again while
+keeping the CUDA/PyTorch build cache. For manual builds, pass a fresh value via
+`--build-arg UPSTREAM_REFRESH=<unique-build-id>` to refresh upstream source.
 
 ## Persistent data
 

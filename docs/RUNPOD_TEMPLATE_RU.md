@@ -85,8 +85,17 @@ ComfyUI 0.38.0 отвечает, Manager 4.2.2 включён, все три TS-
 
 Генерация с реальными моделями и размещение новой сборки в RunPod ещё не проверены.
 ComfyUI выводит предупреждение о cu130 для оптимизированных CUDA-операций;
-это не помешало запуску и тестовому вычислению с cu128. Образ пока опубликован
-не был: локальный тег `timesaver-comfyui:local-test` нельзя указать в RunPod.
+это не помешало запуску и тестовому вычислению с cu128.
+
+Образ опубликован в публичном GHCR: `ghcr.io/alexyez/timesaver-comfyui-docker:cu128-20261005`.
+Теги `cu128` и `latest` указывают на ту же сборку. Анонимный доступ проверен,
+GitHub-токен для скачивания в RunPod не нужен. Для фиксации точной версии:
+
+```text
+ghcr.io/alexyez/timesaver-comfyui-docker@sha256:a9c248b739f794c0d196e6974280c502030ad8b3bbfc6481e256c596ef24b61e
+```
+
+Локальный образ и созданные для тестов Docker-ресурсы удалены.
 
 Источники: [Network volumes](https://docs.runpod.io/storage/network-volumes),
 [Pod templates](https://docs.runpod.io/pods/templates/manage-templates).

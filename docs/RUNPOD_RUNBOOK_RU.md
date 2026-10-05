@@ -13,7 +13,7 @@
 3. Указать образ:
 
    ```text
-   ghcr.io/alexyez/timesaver-comfyui-docker:cu128-20260830
+   ghcr.io/alexyez/timesaver-comfyui-docker:cu128-20261005
    ```
 
    Для проверки самой свежей сборки использовать `:cu128`.

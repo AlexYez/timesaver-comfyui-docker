@@ -54,6 +54,8 @@ jobs:
           context: .
           file: Dockerfile
           platforms: linux/amd64
+          build-args: |
+            UPSTREAM_REFRESH=${{ github.run_id }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

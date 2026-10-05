@@ -38,7 +38,9 @@ RUN python -m pip install --no-cache-dir \
       --index-url https://download.pytorch.org/whl/cu128 \
       torch torchvision torchaudio
 
-RUN git clone --depth 1 --branch "${COMFYUI_REF}" \
+ARG UPSTREAM_REFRESH=manual
+RUN test -n "${UPSTREAM_REFRESH}" \
+    && git clone --depth 1 --branch "${COMFYUI_REF}" \
       https://github.com/Comfy-Org/ComfyUI.git "${COMFYUI_DIR}" \
     && python -m pip install --no-cache-dir -r "${COMFYUI_DIR}/requirements.txt" \
     && python -m pip install --no-cache-dir -r "${COMFYUI_DIR}/manager_requirements.txt"
